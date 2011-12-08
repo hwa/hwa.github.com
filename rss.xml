@@ -286,6 +286,8 @@ Available in the Tumblr theme garden: http://www.tumblr.com/theme/8631 -->
 <p>“艳歌行”及“韩熙载夜宴”土豆网上有，绝美的南音，纯正的华夏雅音</p>
 <h2 id="侯孝贤电影">侯孝贤电影</h2>
 <p>侯孝贤有多部电影闽南文化浓郁纯正，如“悲情城市”，“童年往事”</p>
+<h1 id="地理">地理</h1>
+<h1 id="历史">历史</h1>
   </div>
 </div>
 
@@ -471,6 +473,161 @@ Available in the Tumblr theme garden: http://www.tumblr.com/theme/8631 -->
 ]]></description>
     <pubDate>Thu, 08 Dec 2011 00:00:00 UT</pubDate>
     <guid>http://example.com/posts/2011-12-08-edu.html</guid>
+</item>
+<item>
+    <title>佛法</title>
+    <link>http://example.com/posts/2011-12-08-fojiao.html</link>
+    <description><![CDATA[<!doctype html> 
+<!--
+
+"Notations" theme designed by
+                                 
+888                                  888          888                                     
+888                                  888          888                                     
+888                                  888          888                                     
+88888b.   .d88b.  88888b.        .d88888  .d88b.  888  8888b.  88888b.   .d88b.  888  888 
+888 "88b d8P  Y8b 888 "88b      d88" 888 d8P  Y8b 888     "88b 888 "88b d8P  Y8b 888  888 
+888  888 88888888 888  888      888  888 88888888 888 .d888888 888  888 88888888 888  888 
+888 d88P Y8b.     888  888      Y88b 888 Y8b.     888 888  888 888  888 Y8b.     Y88b 888 
+88888P"   "Y8888  888  888       "Y88888  "Y8888  888 "Y888888 888  888  "Y8888   "Y88888 
+                                                                                      888 
+http://bendelaney.me                                                             Y8b d88P 
+                                                                                  "Y88P"  
+
+
+Available in the Tumblr theme garden: http://www.tumblr.com/theme/8631 -->
+
+<html lang="en">
+<head>	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+	<meta name="viewport" content="width=790"></meta>
+	<title> 佛法 </title>
+	<link rel="shortcut icon" href="{Favicon}"></link>
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"></link>
+	<meta name="if:Use Quicksand Font" content="1"></meta>
+	<meta name="if:Show High Res Photo Links" content="1"></meta>
+	<meta name="if:Show Note Count" content="1"></meta>
+	<meta name="if:Show Word Count" content="1"></meta>
+	<meta name="if:Show Tags" content="1"></meta>
+	<meta name="if:Show Short URL" content="1"></meta>
+	<meta name="if:Show Notes on Permalink Page" content="1"></meta>
+	<meta name="if:Show Ask Link" content="0"></meta>
+	<meta name="if:Show Submit Link" content="0"></meta>
+	<meta name="if:Hide Install Theme Link" content="0"></meta>
+	<meta name="text:Disqus Shortname" content></meta>
+
+        <link rel="stylesheet" href="../css/default.css" type="text/css" charset="utf-8">
+
+	<script src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools-yui-compressed.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://static.tumblr.com/ybdgkw4/Aqokyfovl/mootools-1.2.4.4-more-fornotationstheme.js" type="text/javascript" charset="utf-8"></script>
+
+	<link rel="stylesheet" href="http://static.tumblr.com/ybdgkw4/JSPkya1tr/base64_quicksandfonts.css" type="text/css" charset="utf-8">
+	
+
+	
+	<script type="text/javascript" charset="utf-8">
+		window.addEvent('domready', function() {
+			var Posts = $('.Post');
+			var PhotoSetEmbeds = $('.html_photoset embed');
+
+			Posts.each(function(post, index, array) {
+				if (post.getElement('.Words') != null) {
+					var body = post.getElement('.PostBody');
+					var NumberOfWords = body.get('text').split(' ').length;
+					post.getElement('.WordCount').set('html', NumberOfWords);
+				}
+
+				if (post.getElement('embed.photoset')) {
+					var PhotoSetEmbed = post.getElement('embed.photoset');
+					PhotoSetEmbed.setProperties({
+						 width: '770'
+						,height: '771'
+					});
+				}
+
+				if (post.getElement('.Video') &amp;&amp; !post.hasClass('do_not_resize')) {
+					var el = post.getElement('object') || post.getElement('iframe') || post.getElement('embed');
+					if (el) {
+						var w = el.getProperty('width');
+						var h = el.getProperty('height');
+						var p = ((770 - w) * 100)/w;
+						var newW = 770;
+						var newH = (h * ('1.'+p).toFloat()).round(); 
+						el.setProperties({width:newW, height:newH});
+						if (el.getElement('embed')) {
+							el.getElement('embed').setProperties({width:newW, height:newH});
+						}
+					}
+				}
+			});
+
+			{block:PermalinkPage}
+			var uri = window.location.search.substring(1);
+			if (uri.contains('print')) {
+				$('.Post .PrintPostLink', '.Post .Notes', '.Post .PermaPageNotes', '.Post .Words', '.Post .Tags').each(function(el) {
+					el.setStyle('display', 'none');
+				});
+				(function() { window.print(); }).delay(400)
+			}
+			{/block:PermalinkPage}
+		});
+	</script>
+
+</head>
+<body>
+     <div id="Main">
+       <div id="Header">
+         <div class="Title">
+	   <a href="../" class="Title">博聞</a>
+         </div>
+         <div id="navigation" class="PageLinks">
+	   <a href="../">Home</a>
+           <a href="../posts.html">All posts</a>
+         </div>
+       </div>
+    <div class="Post Single">
+<div class="Text">
+  <a href class="Title">佛法</a>
+  <div class="PostBody">
+  <h2 id="三位仁波切弘法网站">三位仁波切弘法网站</h2>
+<ul>
+<li><a href="http://www.zhibeidy.com/">智悲佛网</a></li>
+<li><a href="http://www.ptz.cc/">菩提洲</a></li>
+<li><a href="http://www.sdgh.org/">圣地光辉</a></li>
+</ul>
+  </div>
+</div>
+
+<div class="Bottom">
+<p>by <em>cch</em> on <strong>December  8, 2011</strong></p>
+<p>Tagged as: <a href="../tags/佛法.html">佛法</a>.</p>
+</div>
+
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'tsanhwa'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+     </div>
+</body>
+</html>
+
+]]></description>
+    <pubDate>Thu, 08 Dec 2011 00:00:00 UT</pubDate>
+    <guid>http://example.com/posts/2011-12-08-fojiao.html</guid>
 </item>
 
     </channel> 
