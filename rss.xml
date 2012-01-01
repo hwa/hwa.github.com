@@ -1853,6 +1853,10 @@ Available in the Tumblr theme garden: http://www.tumblr.com/theme/8631 -->
 <blockquote>
 <p>顏淵問於孔子曰：「淵願貧如富，賤如貴，無勇而威，與士交通，終身無患難。亦且可乎？」孔子曰：「善哉！回也！夫貧而如富，其知足而無欲也；賤而如貴，其讓而有禮也；無勇而威，其恭敬而不失於人也；終身無患難，其擇言而出之也。若回者、其至乎！雖上古聖人亦如此而已。」</p>
 </blockquote>
+<h2 id="链接">链接</h2>
+<ul>
+<li><a href="http://ctext.org/han-shi-wai-zhuan/juan-er/zh">韓詩外傳</a></li>
+</ul>
   </div>
 </div>
 
@@ -2184,7 +2188,6 @@ Available in the Tumblr theme garden: http://www.tumblr.com/theme/8631 -->
 </blockquote>
 <h2 id="链接">链接</h2>
 <ul>
-<li><a href="http://ctext.org/han-shi-wai-zhuan/juan-er/zh">韓詩外傳</a></li>
 <li><a href="http://www.toplulu.com/b32.html">十善業道經</a></li>
 </ul>
   </div>
@@ -2482,6 +2485,9 @@ Available in the Tumblr theme garden: http://www.tumblr.com/theme/8631 -->
   <blockquote>
 <p>管仲曰：「吾始困時，嘗與鮑叔賈，分財利多自與，鮑叔不以我為貪，知我貧也。吾嘗為鮑叔謀事而更窮困，鮑叔不以我為愚，知時有利不利也。吾嘗三仕三見逐於君，鮑叔不以我為不肖，知我不遭時也。吾嘗三戰三走，鮑叔不以我怯，知我有老母也。公子糾敗，召忽死之，吾幽囚受辱，鮑叔不以我為無恥，知我不羞小節而恥功名不顯於天下也。生我者父母，知我者鮑子也。」</p>
 </blockquote>
+<blockquote>
+<p>孟子曰：「知者無不知也，當務之為急；仁者無不愛也，急親賢之為務。堯舜之知而不遍物，急先務也；堯舜之仁不遍愛人，急親賢也。不能三年之喪，而緦小功之察；放飯流歠，而問無齒決，是之謂不知務。」</p>
+</blockquote>
   </div>
 </div>
 
@@ -2663,6 +2669,120 @@ Available in the Tumblr theme garden: http://www.tumblr.com/theme/8631 -->
 ]]></description>
     <pubDate>Sat, 31 Dec 2011 00:00:00 UT</pubDate>
     <guid>http://example.com/posts/2011-12-31-medicine.html</guid>
+</item>
+<item>
+    <title>天文</title>
+    <link>http://example.com/posts/2012-01-01-TianWen.html</link>
+    <description><![CDATA[<!doctype html> 
+<!--
+
+"Notations" theme designed by
+                                 
+888                                  888          888                                     
+888                                  888          888                                     
+888                                  888          888                                     
+88888b.   .d88b.  88888b.        .d88888  .d88b.  888  8888b.  88888b.   .d88b.  888  888 
+888 "88b d8P  Y8b 888 "88b      d88" 888 d8P  Y8b 888     "88b 888 "88b d8P  Y8b 888  888 
+888  888 88888888 888  888      888  888 88888888 888 .d888888 888  888 88888888 888  888 
+888 d88P Y8b.     888  888      Y88b 888 Y8b.     888 888  888 888  888 Y8b.     Y88b 888 
+88888P"   "Y8888  888  888       "Y88888  "Y8888  888 "Y888888 888  888  "Y8888   "Y88888 
+                                                                                      888 
+http://bendelaney.me                                                             Y8b d88P 
+                                                                                  "Y88P"  
+
+
+Available in the Tumblr theme garden: http://www.tumblr.com/theme/8631 -->
+
+<html lang="en">
+<head>	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+	<meta name="viewport" content="width=790"></meta>
+	<title> 天文 </title>
+	<link rel="shortcut icon" href="{Favicon}"></link>
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"></link>
+	<meta name="if:Use Quicksand Font" content="1"></meta>
+	<meta name="if:Show High Res Photo Links" content="1"></meta>
+	<meta name="if:Show Note Count" content="1"></meta>
+	<meta name="if:Show Word Count" content="1"></meta>
+	<meta name="if:Show Tags" content="1"></meta>
+	<meta name="if:Show Short URL" content="1"></meta>
+	<meta name="if:Show Notes on Permalink Page" content="1"></meta>
+	<meta name="if:Show Ask Link" content="0"></meta>
+	<meta name="if:Show Submit Link" content="0"></meta>
+	<meta name="if:Hide Install Theme Link" content="0"></meta>
+	<meta name="text:Disqus Shortname" content></meta>
+
+        <link rel="stylesheet" href="../css/default.css" type="text/css" charset="utf-8">
+        <link rel="stylesheet" href="../css/.css" type="text/css" charset="utf-8">
+        
+
+	<script src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools-yui-compressed.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://static.tumblr.com/ybdgkw4/Aqokyfovl/mootools-1.2.4.4-more-fornotationstheme.js" type="text/javascript" charset="utf-8"></script>
+
+	<link rel="stylesheet" href="http://static.tumblr.com/ybdgkw4/JSPkya1tr/base64_quicksandfonts.css" type="text/css" charset="utf-8">
+
+        <script src="../js/bendelaney.js" type="text/javascript" charset="utf-8"></script>
+
+	
+
+
+</head>
+<body>
+     <div id="Main">
+       <div id="Header">
+         <div class="Title">
+	   <a href="../" class="Title">博聞</a>
+         </div>
+         <div id="navigation" class="PageLinks">
+	   <a href="../">Home</a>
+           <a href="../posts.html">All posts</a>
+	   <a href="http://199.68.198.125">璇璣玉衡</a>
+	   <a href="http://199.68.198.125/yh/vert/toc">古文</a>
+	   <a href="http://weibo.com/u/2267050864">新浪微博</a> 
+       </div>
+       </div>
+    <div class="Post Single">
+<div class="Text">
+  <a href class="Title">天文</a>
+  <div class="PostBody">
+  <p>仰首觀天，日月出沒，斗轉星移，莫不升降，唯一不遷，位北天極，是為<strong>北辰</strong>。北辰稍降，乃見<strong>北斗七星</strong>，北辰隱暗，七星朗耀。滿天星辰，視斗所指，各正其位，各居其位，夜夜不移，此謂<strong>恆星</strong>。唯<strong>日、月、金、木、水、火、土</strong>流轉不居，别称<strong>七政</strong>。自北辰而視，日循<strong>黃道</strong>而流轉，月與五星流轉軌轍亦處黃道，而微有出入，但週期迥異，日轉一週為一<strong>歲</strong>，月轉一週為一<strong>月</strong>，其他五星各各不同。黃道之上日月相遇為<strong>朔</strong>，一歲凡十二遇有餘。相望為<strong>望</strong>，朔後十四至十七日不等而望，以月之流轉有遲速故也。黃道交赤道於春分與秋分，依春分而二十四均分黃道，均分點交稱<strong>節氣與中氣</strong>，立春為節氣，雨水為中氣，以此後推。春分定為黃道零度。秋分為黃道一百八十度，夏至為黃道九十度，冬至為黃道二百七十度。黃道三百度為大寒，三百一十五度為立春，三百三十度為雨水，太陽行於大寒與雨水之間可且僅可一遇於月，立為<strong>夏曆正月朔</strong>。夏曆每月以朔之日為初一日，大率皆含一中氣，未含中氣者稱<strong>閏月</strong>。凡黃道附近星辰因方位分四象，東方<strong>青龍</strong>，北方<strong>玄武</strong>，西方<strong>白虎</strong>，南方<strong>朱雀</strong>，各統七宿，東方青龍統角、亢、氐、房、心、尾、箕，北方玄武統斗、牛、女、虛、危、室、壁，西方白虎統奎、婁、胃、昴、畢、觜、參，南方朱雀統井、鬼、柳、星、張、翼、軫，是為<strong>二十八星宿</strong>。</p>
+<h2 id="鏈接">鏈接</h2>
+<ul>
+<li><a href="http://aa.usno.navy.mil/data/docs/MoonPhase.php" title="月相時刻數據">月相時刻數據</a></li>
+</ul>
+  </div>
+</div>
+
+<div class="Bottom">
+<p>by <em>cch</em> on <strong>January  1, 2012</strong></p>
+<p>Tagged as: <a href="../tags/天文， 華夏.html">天文， 華夏</a>.</p>
+</div>
+
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'tsanhwa'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+     </div>
+</body>
+</html>
+
+]]></description>
+    <pubDate>Sun, 01 Jan 2012 00:00:00 UT</pubDate>
+    <guid>http://example.com/posts/2012-01-01-TianWen.html</guid>
 </item>
 
     </channel> 
