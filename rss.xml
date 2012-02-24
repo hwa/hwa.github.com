@@ -3829,142 +3829,8 @@ Available in the Tumblr theme garden: http://www.tumblr.com/theme/8631 -->
     <guid>http://example.com/posts/2012-02-05-note.html</guid>
 </item>
 <item>
-    <title>some docs</title>
-    <link>http://example.com/posts/2012-02-19-IT.html</link>
-    <description><![CDATA[<!doctype html> 
-<!--
-
-"Notations" theme designed by
-                                 
-888                                  888          888                                     
-888                                  888          888                                     
-888                                  888          888                                     
-88888b.   .d88b.  88888b.        .d88888  .d88b.  888  8888b.  88888b.   .d88b.  888  888 
-888 "88b d8P  Y8b 888 "88b      d88" 888 d8P  Y8b 888     "88b 888 "88b d8P  Y8b 888  888 
-888  888 88888888 888  888      888  888 88888888 888 .d888888 888  888 88888888 888  888 
-888 d88P Y8b.     888  888      Y88b 888 Y8b.     888 888  888 888  888 Y8b.     Y88b 888 
-88888P"   "Y8888  888  888       "Y88888  "Y8888  888 "Y888888 888  888  "Y8888   "Y88888 
-                                                                                      888 
-http://bendelaney.me                                                             Y8b d88P 
-                                                                                  "Y88P"  
-
-
-Available in the Tumblr theme garden: http://www.tumblr.com/theme/8631 -->
-
-<html lang="en">
-<head>	
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
-	<meta name="viewport" content="width=790"></meta>
-	<title> some docs </title>
-	<link rel="shortcut icon" href="{Favicon}"></link>
-	<link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"></link>
-	<meta name="if:Use Quicksand Font" content="1"></meta>
-	<meta name="if:Show High Res Photo Links" content="1"></meta>
-	<meta name="if:Show Note Count" content="1"></meta>
-	<meta name="if:Show Word Count" content="1"></meta>
-	<meta name="if:Show Tags" content="1"></meta>
-	<meta name="if:Show Short URL" content="1"></meta>
-	<meta name="if:Show Notes on Permalink Page" content="1"></meta>
-	<meta name="if:Show Ask Link" content="0"></meta>
-	<meta name="if:Show Submit Link" content="0"></meta>
-	<meta name="if:Hide Install Theme Link" content="0"></meta>
-	<meta name="text:Disqus Shortname" content></meta>
-
-        <link rel="stylesheet" href="../css/default.css" type="text/css" charset="utf-8">
-        <link rel="stylesheet" href="../css/.css" type="text/css" charset="utf-8">
-        
-
-	<script src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools-yui-compressed.js" type="text/javascript" charset="utf-8"></script>
-<!--	<script src="http://static.tumblr.com/ybdgkw4/Aqokyfovl/mootools-1.2.4.4-more-fornotationstheme.js" type="text/javascript" charset="utf-8"></script>
-
-	<link rel="stylesheet"
-	href="http://static.tumblr.com/ybdgkw4/JSPkya1tr/base64_quicksandfonts.css"
-	type="text/css" charset="utf-8"> -->
-
-        <script src="../js/bendelaney.js" type="text/javascript" charset="utf-8"></script>
-
-	
-
-
-</head>
-<body>
-     <div id="Main">
-       <div id="Header">
-         <div class="Title">
-	   <a href="../" class="Title">珍之匯</a>
-         </div>
-         <div id="navigation" class="PageLinks">
-	   <a href="../">首頁</a>
-<!--           <a href="/posts.html">All posts</a>  -->
-	   <a href="../posts/2011-12-20-jian.html">日鑒</a>
-	   <a href="../posts/2011-12-16-Fo.html">禮敬</a>
-	   <a href="http://199.68.198.125/yh/vert/toc">文言</a>
-	   <a href="http://199.68.198.125">璇璣玉衡</a>
-	   <a href="http://weibo.com/u/2267050864">新浪微博</a> 
-       </div>
-       </div>
-    <div class="Post Single">
-<div class="Text">
-  <a href class="Title">some docs</a>
-  <div class="PostBody">
-  <h1 id="debian">debian</h1>
-<h2 id="软件安装">软件安装</h2>
-<h3 id="修改-apt-之源shell命令如下">修改 apt 之源。shell命令如下:</h3>
-<pre><code>   su			# root 登录
-   cd /etc/apt/
-   cp sources.list sources.list.backup
-   echo &quot;deb http://mirrors.163.com/debian testing main contrib non-free&quot; &gt; sources.list
-</code></pre>
-<h3 id="更新软件信息">更新软件信息</h3>
-<pre><code>   aptitude update          # 更新软件信息
-</code></pre>
-<h3 id="安装软件安装软件如果碰到依赖关系无法解决则需先升级整个系统">安装软件。安装软件如果碰到依赖关系无法解决，则需先升级整个系统。</h3>
-<pre><code>   aptitude install vim     # 以安装 vim 为例
-   aptitude install {软件名称}
-</code></pre>
-<h3 id="升级整个系统">升级整个系统</h3>
-<pre><code>   aptitude upgrade		# 升级整个系统
-</code></pre>
-<p>或者</p>
-<pre><code>   aptitude dist-upgrade    # 版本大升级，最彻底的升级
-</code></pre>
-  </div>
-</div>
-
-<div class="Bottom">
-<p>by <em>cch</em> on <strong>February 19, 2012</strong></p>
-<p>Tagged as: <a href="../tags/hack.html">hack</a>.</p>
-</div>
-
-
-</div>
-
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'tsanhwa'; // required: replace example with your forum shortname
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-
-     </div>
-</body>
-</html>
-
-]]></description>
-    <pubDate>Sun, 19 Feb 2012 00:00:00 UT</pubDate>
-    <guid>http://example.com/posts/2012-02-19-IT.html</guid>
-</item>
-<item>
     <title>摘抄 正月戊申廿六</title>
-    <link>http://example.com/posts/2012-2-17-notes.html</link>
+    <link>http://example.com/posts/2012-02-17-notes.html</link>
     <description><![CDATA[<!doctype html> 
 <!--
 
@@ -4061,7 +3927,7 @@ Available in the Tumblr theme garden: http://www.tumblr.com/theme/8631 -->
 </div>
 
 <div class="Bottom">
-<p>by <em>cch</em> on <strong>Date unknown</strong></p>
+<p>by <em>cch</em> on <strong>February 17, 2012</strong></p>
 <p>Tagged as: <a href="../tags/佛学.html">佛学</a>.</p>
 </div>
 
@@ -4088,8 +3954,265 @@ Available in the Tumblr theme garden: http://www.tumblr.com/theme/8631 -->
 </html>
 
 ]]></description>
-    <pubDate>No date found.</pubDate>
-    <guid>http://example.com/posts/2012-2-17-notes.html</guid>
+    <pubDate>Fri, 17 Feb 2012 00:00:00 UT</pubDate>
+    <guid>http://example.com/posts/2012-02-17-notes.html</guid>
+</item>
+<item>
+    <title>some docs</title>
+    <link>http://example.com/posts/2012-02-19-IT.html</link>
+    <description><![CDATA[<!doctype html> 
+<!--
+
+"Notations" theme designed by
+                                 
+888                                  888          888                                     
+888                                  888          888                                     
+888                                  888          888                                     
+88888b.   .d88b.  88888b.        .d88888  .d88b.  888  8888b.  88888b.   .d88b.  888  888 
+888 "88b d8P  Y8b 888 "88b      d88" 888 d8P  Y8b 888     "88b 888 "88b d8P  Y8b 888  888 
+888  888 88888888 888  888      888  888 88888888 888 .d888888 888  888 88888888 888  888 
+888 d88P Y8b.     888  888      Y88b 888 Y8b.     888 888  888 888  888 Y8b.     Y88b 888 
+88888P"   "Y8888  888  888       "Y88888  "Y8888  888 "Y888888 888  888  "Y8888   "Y88888 
+                                                                                      888 
+http://bendelaney.me                                                             Y8b d88P 
+                                                                                  "Y88P"  
+
+
+Available in the Tumblr theme garden: http://www.tumblr.com/theme/8631 -->
+
+<html lang="en">
+<head>	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+	<meta name="viewport" content="width=790"></meta>
+	<title> some docs </title>
+	<link rel="shortcut icon" href="{Favicon}"></link>
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"></link>
+	<meta name="if:Use Quicksand Font" content="1"></meta>
+	<meta name="if:Show High Res Photo Links" content="1"></meta>
+	<meta name="if:Show Note Count" content="1"></meta>
+	<meta name="if:Show Word Count" content="1"></meta>
+	<meta name="if:Show Tags" content="1"></meta>
+	<meta name="if:Show Short URL" content="1"></meta>
+	<meta name="if:Show Notes on Permalink Page" content="1"></meta>
+	<meta name="if:Show Ask Link" content="0"></meta>
+	<meta name="if:Show Submit Link" content="0"></meta>
+	<meta name="if:Hide Install Theme Link" content="0"></meta>
+	<meta name="text:Disqus Shortname" content></meta>
+
+        <link rel="stylesheet" href="../css/default.css" type="text/css" charset="utf-8">
+        <link rel="stylesheet" href="../css/.css" type="text/css" charset="utf-8">
+        
+
+	<script src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools-yui-compressed.js" type="text/javascript" charset="utf-8"></script>
+<!--	<script src="http://static.tumblr.com/ybdgkw4/Aqokyfovl/mootools-1.2.4.4-more-fornotationstheme.js" type="text/javascript" charset="utf-8"></script>
+
+	<link rel="stylesheet"
+	href="http://static.tumblr.com/ybdgkw4/JSPkya1tr/base64_quicksandfonts.css"
+	type="text/css" charset="utf-8"> -->
+
+        <script src="../js/bendelaney.js" type="text/javascript" charset="utf-8"></script>
+
+	
+
+
+</head>
+<body>
+     <div id="Main">
+       <div id="Header">
+         <div class="Title">
+	   <a href="../" class="Title">珍之匯</a>
+         </div>
+         <div id="navigation" class="PageLinks">
+	   <a href="../">首頁</a>
+<!--           <a href="/posts.html">All posts</a>  -->
+	   <a href="../posts/2011-12-20-jian.html">日鑒</a>
+	   <a href="../posts/2011-12-16-Fo.html">禮敬</a>
+	   <a href="http://199.68.198.125/yh/vert/toc">文言</a>
+	   <a href="http://199.68.198.125">璇璣玉衡</a>
+	   <a href="http://weibo.com/u/2267050864">新浪微博</a> 
+       </div>
+       </div>
+    <div class="Post Single">
+<div class="Text">
+  <a href class="Title">some docs</a>
+  <div class="PostBody">
+  <h1 id="debian">debian</h1>
+<h2 id="系统配置">系统配置</h2>
+<h3 id="网络配置">网络配置</h3>
+<pre><code>(root身份)
+ifconfig eth0 10.0.0.3 netmask 255.255.255.0
+route add default gw 10.0.0.1
+</code></pre>
+<h2 id="软件安装">软件安装</h2>
+<h3 id="修改-apt-之源shell命令如下">修改 apt 之源。shell命令如下:</h3>
+<pre><code>   su			# root 登录
+   cd /etc/apt/
+   cp sources.list sources.list.backup
+   echo &quot;deb http://mirrors.163.com/debian testing main contrib non-free&quot; &gt; sources.list
+</code></pre>
+<h3 id="更新软件信息">更新软件信息</h3>
+<pre><code>   aptitude update          # 更新软件信息
+</code></pre>
+<h3 id="安装软件安装软件如果碰到依赖关系无法解决则需先升级整个系统">安装软件。安装软件如果碰到依赖关系无法解决，则需先升级整个系统。</h3>
+<pre><code>   aptitude install vim     # 以安装 vim 为例
+   aptitude install {软件名称}
+</code></pre>
+<h3 id="升级整个系统">升级整个系统</h3>
+<pre><code>   aptitude upgrade		# 升级整个系统
+</code></pre>
+<p>或者</p>
+<pre><code>   aptitude dist-upgrade    # 版本大升级，最彻底的升级
+</code></pre>
+  </div>
+</div>
+
+<div class="Bottom">
+<p>by <em>cch</em> on <strong>February 19, 2012</strong></p>
+<p>Tagged as: <a href="../tags/hack.html">hack</a>.</p>
+</div>
+
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'tsanhwa'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+     </div>
+</body>
+</html>
+
+]]></description>
+    <pubDate>Sun, 19 Feb 2012 00:00:00 UT</pubDate>
+    <guid>http://example.com/posts/2012-02-19-IT.html</guid>
+</item>
+<item>
+    <title>摘抄 正月庚戌廿八</title>
+    <link>http://example.com/posts/2012-02-19-notes.html</link>
+    <description><![CDATA[<!doctype html> 
+<!--
+
+"Notations" theme designed by
+                                 
+888                                  888          888                                     
+888                                  888          888                                     
+888                                  888          888                                     
+88888b.   .d88b.  88888b.        .d88888  .d88b.  888  8888b.  88888b.   .d88b.  888  888 
+888 "88b d8P  Y8b 888 "88b      d88" 888 d8P  Y8b 888     "88b 888 "88b d8P  Y8b 888  888 
+888  888 88888888 888  888      888  888 88888888 888 .d888888 888  888 88888888 888  888 
+888 d88P Y8b.     888  888      Y88b 888 Y8b.     888 888  888 888  888 Y8b.     Y88b 888 
+88888P"   "Y8888  888  888       "Y88888  "Y8888  888 "Y888888 888  888  "Y8888   "Y88888 
+                                                                                      888 
+http://bendelaney.me                                                             Y8b d88P 
+                                                                                  "Y88P"  
+
+
+Available in the Tumblr theme garden: http://www.tumblr.com/theme/8631 -->
+
+<html lang="en">
+<head>	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+	<meta name="viewport" content="width=790"></meta>
+	<title> 摘抄 正月庚戌廿八 </title>
+	<link rel="shortcut icon" href="{Favicon}"></link>
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"></link>
+	<meta name="if:Use Quicksand Font" content="1"></meta>
+	<meta name="if:Show High Res Photo Links" content="1"></meta>
+	<meta name="if:Show Note Count" content="1"></meta>
+	<meta name="if:Show Word Count" content="1"></meta>
+	<meta name="if:Show Tags" content="1"></meta>
+	<meta name="if:Show Short URL" content="1"></meta>
+	<meta name="if:Show Notes on Permalink Page" content="1"></meta>
+	<meta name="if:Show Ask Link" content="0"></meta>
+	<meta name="if:Show Submit Link" content="0"></meta>
+	<meta name="if:Hide Install Theme Link" content="0"></meta>
+	<meta name="text:Disqus Shortname" content></meta>
+
+        <link rel="stylesheet" href="../css/default.css" type="text/css" charset="utf-8">
+        <link rel="stylesheet" href="../css/.css" type="text/css" charset="utf-8">
+        
+
+	<script src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools-yui-compressed.js" type="text/javascript" charset="utf-8"></script>
+<!--	<script src="http://static.tumblr.com/ybdgkw4/Aqokyfovl/mootools-1.2.4.4-more-fornotationstheme.js" type="text/javascript" charset="utf-8"></script>
+
+	<link rel="stylesheet"
+	href="http://static.tumblr.com/ybdgkw4/JSPkya1tr/base64_quicksandfonts.css"
+	type="text/css" charset="utf-8"> -->
+
+        <script src="../js/bendelaney.js" type="text/javascript" charset="utf-8"></script>
+
+	
+
+
+</head>
+<body>
+     <div id="Main">
+       <div id="Header">
+         <div class="Title">
+	   <a href="../" class="Title">珍之匯</a>
+         </div>
+         <div id="navigation" class="PageLinks">
+	   <a href="../">首頁</a>
+<!--           <a href="/posts.html">All posts</a>  -->
+	   <a href="../posts/2011-12-20-jian.html">日鑒</a>
+	   <a href="../posts/2011-12-16-Fo.html">禮敬</a>
+	   <a href="http://199.68.198.125/yh/vert/toc">文言</a>
+	   <a href="http://199.68.198.125">璇璣玉衡</a>
+	   <a href="http://weibo.com/u/2267050864">新浪微博</a> 
+       </div>
+       </div>
+    <div class="Post Single">
+<div class="Text">
+  <a href class="Title">摘抄 正月庚戌廿八</a>
+  <div class="PostBody">
+  <blockquote>
+<p>孤独地狱的处所是无法确定的，天界、人道等遍布世间一切处所。孤独地狱的痛苦也是无法确定的。众生若贪执好看的门，就会投生到门里。当门遭受重击，在此门内众生也会感受同样的重击。喇嘛仁波切说：“门要轻轻地关，若此门内有孤独地狱的众生，猛力关门会使其遭受被撞击的痛苦。”</p>
+</blockquote>
+<p>今天 11:20 阿松活佛微博</p>
+  </div>
+</div>
+
+<div class="Bottom">
+<p>by <em>cch</em> on <strong>February 19, 2012</strong></p>
+<p>Tagged as: <a href="../tags/摘抄.html">摘抄</a>, <a href="../tags/佛学.html">佛学</a>.</p>
+</div>
+
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'tsanhwa'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+     </div>
+</body>
+</html>
+
+]]></description>
+    <pubDate>Sun, 19 Feb 2012 00:00:00 UT</pubDate>
+    <guid>http://example.com/posts/2012-02-19-notes.html</guid>
 </item>
 
     </channel> 
