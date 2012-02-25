@@ -38,7 +38,7 @@ Available in the Tumblr theme garden: http://www.tumblr.com/theme/8631 -->
 	<meta name="text:Disqus Shortname" content></meta>
 
         <link rel="stylesheet" href="../css/default.css" type="text/css" charset="utf-8">
-        <link rel="stylesheet" href="../css/.css" type="text/css" charset="utf-8">
+        <link rel="stylesheet" href="../css/espresso.css" type="text/css" charset="utf-8">
         
 
 	<script src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools-yui-compressed.js" type="text/javascript" charset="utf-8"></script>
@@ -77,30 +77,25 @@ Available in the Tumblr theme garden: http://www.tumblr.com/theme/8631 -->
   <h1 id="debian">debian</h1>
 <h2 id="系统配置">系统配置</h2>
 <h3 id="网络配置">网络配置</h3>
-<pre><code>(root身份)
+<p>可用shell命令配置，如下</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">(</span>root身份<span class="kw">)</span>
 ifconfig eth0 10.0.0.3 netmask 255.255.255.0
-route add default gw 10.0.0.1
-</code></pre>
+route add default gw 10.0.0.1</code></pre>
 <h2 id="软件安装">软件安装</h2>
 <h3 id="修改-apt-之源shell命令如下">修改 apt 之源。shell命令如下:</h3>
-<pre><code>   su			# root 登录
-   cd /etc/apt/
-   cp sources.list sources.list.backup
-   echo &quot;deb http://mirrors.163.com/debian testing main contrib non-free&quot; &gt; sources.list
-</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">su</span>			<span class="co"># root 登录</span>
+<span class="kw">cd</span> /etc/apt/
+<span class="kw">cp</span> sources.list sources.list.backup
+<span class="kw">echo</span> <span class="st">&quot;deb http://mirrors.163.com/debian testing main contrib non-free&quot;</span> <span class="kw">&gt;</span> sources.list</code></pre>
 <h3 id="更新软件信息">更新软件信息</h3>
-<pre><code>   aptitude update          # 更新软件信息
-</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">aptitude update          <span class="co"># 更新软件信息</span></code></pre>
 <h3 id="安装软件安装软件如果碰到依赖关系无法解决则需先升级整个系统">安装软件。安装软件如果碰到依赖关系无法解决，则需先升级整个系统。</h3>
-<pre><code>   aptitude install vim     # 以安装 vim 为例
-   aptitude install {软件名称}
-</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">aptitude <span class="kw">install</span> vim     <span class="co"># 以安装 vim 为例</span>
+aptitude <span class="kw">install</span> {软件名称}</code></pre>
 <h3 id="升级整个系统">升级整个系统</h3>
-<pre><code>   aptitude upgrade		# 升级整个系统
-</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">aptitude upgrade		<span class="co"># 升级整个系统</span></code></pre>
 <p>或者</p>
-<pre><code>   aptitude dist-upgrade    # 版本大升级，最彻底的升级
-</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash">aptitude dist-upgrade    <span class="co"># 版本大升级，最彻底的升级</span></code></pre>
   </div>
 </div>
 
