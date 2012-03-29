@@ -1,0 +1,164 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title></title>
+  <meta name="description" content>
+
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" type="text/css" href="http://199.68.198.125/6su/css/HanDingYanTi?text=之事仁代何佛使修備傳先光切加化千南博历參变古吉命咒國城堪壇外天失如子孟孫室少布希序座弘得微忘念思慈成所手抄持指摘改放政教敬文新旅日明服榮治法波溫漢生用略病禪禮穆站章系素索統經網经聖育萌著要記詩講蹟运述達選邈錄鑒钱闽阿青韓變運閩最近有頁字體多樣的實現方概務器內部上代碼示範後續問題結語"></link>
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/bb.css">
+  <link rel="stylesheet" href="../../css/zh-code.css">
+
+</head>
+<body>
+  <header>
+    <div class="nav nav-pills">
+      <li><a href="../../">首頁</a></li>
+      <li><a href="../../posts/學不可以已/2011-12-20-jian.html">日鑒</a></li>
+      <li><a href="../../posts/學不可以已/2011-12-16-Fo.html">禮敬</a></li>
+      <li><a href="http://199.68.198.125/yh/vert/toc">文言</a></li>
+      <li><a href="http://weibo.com/u/2267050864">新浪微博</a></li>
+      <li><a href="../../categories/零幺之業.html">零幺之業</a></li>
+      <li><a href="../../categories/學不可以已.html">學不可以已</a></li>
+    </div>
+
+  </header>
+  <div role="main">
+  <div class="article">
+  <h1 class="page-header title"><a href>網頁上實現漢字字體的多樣化</a></h1>
+    <h1 id="概述">概述</h1>
+<p>萬維網上見到的漢字不出宋、黑、楷三種字體，因為幾乎每台電腦上都會有這三種字體，而其他字體就很不一定了。網頁設計者則無法將美術效果寄望于採用其他美麗的字體。如此一來，我們就看到標題也用宋黑楷，正文也用宋黑楷，引文，註腳，或者其他需要凸顯的文字也只能在宋黑楷之間選擇。因此漢字網頁很難製作出印刷品的藝術美來。最近隨着<a href="https://developers.google.com/webfonts/docs/getting_started">GOOGLE網頁字體</a>的興起，網上看到越來越多的拼音文字字體。其實現方式是，用戶在瀏覽頁面之時一併從服務器下載所需的字體。然而我們並未看到漢字字體在網頁上豐富起來。原因在於，漢字數量是拼音字母的數百倍，且字形更繁密，導致漢字字體文件往往是拼音文字的數百千倍，即使不完全的字體文件一般也有數十倍大，在一二十兆。對於現今的互聯網帶寬，加載如此巨大的體量是個天方夜譚。</p>
+<p>以前想到過一個解決方法，前日試驗一下，竟然湊效。這一方法主要是注意到漢字數量雖然龐大，有幾個萬，但是常用的只有三千，最常用只有一兩千。曾經統計過某論壇的萬餘張頁面，發現絕大多數頁面只用了幾百個漢字。前日試驗發現，漢字字體文件如果只包括一千個漢字，則只有兩三百個千字節(KB)。兩千個漢字，就是四百個千字節左右。這個數量級對於當今帶寬完全可以接受。而且網頁一般僅對標題等特別地方使用不常見字體，因此所需要的漢字數量就更少，可能只有幾個至幾十個，那麼如果漢字字體文件只包含這幾十個漢字，則只有幾個千字節。如此豈不喜出望外了!現在的問題就是從漢字大字庫中抽取子集字庫。前日意外發現Fontforge軟件可以非常簡單解決此問題。Fontforge甚至提供Python語言接口，使用非常簡單，代碼只有聊聊十餘行。昨日以此為基礎成功實現了一套字體服務系統。這套系統設立一台專門服務器，用戶向其請求字體類型，並告知所需提取的漢字，服務器利用Fontforge在此字體的大字庫文件中抽取用戶所請求的漢字，製作成新的字體文件，發給用戶。</p>
+<p>以下就網頁作者如何使用字體服務，字體服務器如何實現等細節詳細說明。</p>
+<h1 id="字體服務的使用">字體服務的使用</h1>
+<p>網頁作者在HTML的HEAD部份插入以下一個CSS引用。</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> type=</span><span class="st">&quot;text/css&quot;</span><span class="ot"> href=</span><span class="st">&quot;http://199.68.198.125/6su/css/HanDingYanTi?text=孟孫少室&quot;</span><span class="kw">&gt;&lt;/link&gt;</span></code></pre>
+<p>其中“HanDingYanTi”是字體服務器所提供的字體名稱，參數text是所需的漢字，即“孟孫少室”四個字。插入這個引用之後，作者就可以在HTML頁面中直接使用“HanDingYanTi”字體了。如</p>
+<pre class="sourceCode css"><code class="sourceCode css">h2 <span class="kw">{</span>
+   <span class="kw">font-family:</span> HanDingYanTi<span class="kw">;</span>
+<span class="kw">}</span></code></pre>
+<p>網頁作者瞭解這麼多就足以使用新字體了。如果好奇，可以發現那個CSS引用是從服務器上得到一段CSS代碼，這段代碼定義了“HanDingYanTi”字體，代碼如下</p>
+<pre class="sourceCode css"><code class="sourceCode css"><span class="dv">@font-face</span> <span class="kw">{</span>
+  <span class="kw">font-family:</span> <span class="st">'HanDingYanTi'</span><span class="kw">;</span>
+  <span class="kw">src:</span> <span class="dt">url(.</span>/subfonts/HanDingYanTi--4714295958101654617<span class="dt">.</span>eot<span class="dt">)</span><span class="kw">;</span>
+  <span class="kw">src:</span> <span class="dt">local(</span><span class="st">'☺'</span><span class="dt">)</span>, <span class="dt">url(</span><span class="st">'./subfonts/HanDingYanTi--4714295958101654617.eot?'</span><span class="dt">)</span> <span class="dt">format(</span><span class="st">'eot'</span><span class="dt">)</span>, <span class="dt">url(</span><span class="st">'./subfonts/HanDingYanTi--4714295958101654617.woff'</span><span class="dt">)</span> <span class="dt">format(</span><span class="st">'woff'</span><span class="dt">)</span>, <span class="dt">url(</span><span class="st">'./subfonts/HanDingYanTi--4714295958101654617.ttf'</span><span class="dt">)</span> <span class="dt">format(</span><span class="st">'truetype'</span><span class="dt">)</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre>
+<p>這段代碼定義了字體名稱，並告知不同瀏覽器此字體的不同下載地址。其中eot和woff文件是為微軟的Internet Explorer準備的，ttf是提供給其他瀏覽器，包括Google Chrome，Mozilla Firefox，Safari, Opera等。<sup><a href="#fn1" class="footnoteRef" id="fnref1">1</a></sup></p>
+<h1 id="字體服務器內部實現-所有代碼已放在github上">字體服務器內部實現 <sup><a href="#fn2" class="footnoteRef" id="fnref2">2</a></sup></h1>
+<p>從以上所述的使用方法可以看出，服務器上有一個網頁服務器，提供兩種類型的響應，一是CSS文件，一是字體文件。服務器在收到用戶HTML頁面所提出的CSS請求時，先啟用Fontforge從大字庫文件中抽取所需的漢字，並製作成三個字體文件，分別是eot、woff、ttf三個格式，將三個字體文件寫到磁盤上，然後生成一段CSS代碼，內置此三個字體文件的資源路徑(URL)，最後將此段CSS代碼返回給用戶。服務器對於用戶HTML頁面所提出的字體文件請求，只需簡單將字體文件發出即可。</p>
+<p>以下詳述Fontforge生成子集字體的代碼。</p>
+<h2 id="fontforge代碼-fontforge的python接口文檔">FontForge代碼 <sup><a href="#fn3" class="footnoteRef" id="fnref3">3</a></sup></h2>
+<p>據初淺研究，字體文件主要包含字體的高級信息(meta data)，(如字體的字符集編碼、字號大小等)，每個漢字的字形，以及漢字與字形的映射。由於未深入研究，為避免高級信息處理上的錯誤，以下Fontforge代碼在實現上以某一個已知可用的字體文件為底版字體，將其字形全部清除，然後從大字庫字體文件中複製出所需漢字的字形，粘貼於底版字體中。最後將底版字體生成ttf和woff格式的文件，寫入網頁服務器所提供的目錄裡，等待用戶下載。</p>
+<p>在上述複製粘貼過程中，可能會碰到兩個問題，一是字號不一致，導致複製後字形過大或過小，這個問題的解決方法是將底版字體的字號設置為字庫文件的字號。另一個問題是字形的縮進問題，導致複製後的字形縮進不正確，多個漢字會擠作一團，這個問題可能需要深入研究字體的高級信息才能解決。</p>
+<p>上述過程中Fontforge並未生成eot格式，因為雖然Fontforge支持多種字體格式，也可直接生成eot格式，但是其生成的eot文件不能在Internet Explorer下使用，網上多有論述。解決方法是先用Fontforge生成ttf格式文件，再用一個<a href="http://code.google.com/p/ttf2eot/">ttf2eot</a>程序將之轉為eot格式。<sup><a href="#fn4" class="footnoteRef" id="fnref4">4</a></sup></p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">import</span> fontforge
+<span class="ch">import</span> os
+
+font_dir = <span class="st">&quot;./subfonts/&quot;</span>      <span class="co">#子集字庫文件置入此目錄</span>
+template_font = fontforge.<span class="dt">open</span>(<span class="st">&quot;./fonts/li.tpl.ttf&quot;</span>) <span class="co">#以某一字體為字體信息底版</span>
+HanDingYanTi_font = fontforge.<span class="dt">open</span>(<span class="st">&quot;./fonts/HDZB_24.TTF&quot;</span>) <span class="co"># 此是大字庫字體</span>
+font_files = {<span class="st">&quot;HanDingYanTi&quot;</span> : HanDingYanTi_font} 
+
+<span class="kw">def</span> subfont(origin_font, template_font, unicodes, output_path):
+    font0 = origin_font  <span class="co"># 此變量指向大字庫字體</span>
+    font1 = template_font <span class="co"># 此變量指向底版字體</span>
+
+    <span class="co"># 令字號大小一致</span>
+    font1.em = font0.em   <span class="co"># em 屬性是字體的字號</span>
+
+    font1.selection.<span class="dt">all</span>() <span class="co"># 選擇底版所有字形</span>
+    font1.clear()         <span class="co"># 清除底版所有字形</span>
+
+    <span class="kw">for</span> u in unicodes:    <span class="co"># unicodes是待提取的漢字的unicode表示，如Python中表示為 u'漢'</span>
+        uname = fontforge.nameFromUnicode(<span class="dt">ord</span>(u))   <span class="co">#由漢字的unicode表示轉換為名稱，如&quot;漢&quot;轉為&quot;uni6F22&quot;，其中6F22其實是&quot;漢&quot;在Unicode中的16位數字序號。</span>
+        font0.selection.select(uname)  <span class="co"># 在字庫中選擇此漢字</span>
+        font0.copy()                   <span class="co"># 複製此漢字至粘貼版</span>
+        font1.selection.select(uname)  <span class="co"># 在底版字體中選擇此漢字</span>
+        font1.paste()                  <span class="co"># 從粘貼版中粘取此漢字</span>
+
+    font1.generate(output_path + <span class="st">&quot;.ttf&quot;</span>)     <span class="co"># 將僅含所需漢字的底版字體寫入ttf格式的文件</span>
+    cmd = <span class="st">&quot;./ttf2eot &lt; </span><span class="ot">%s</span><span class="st">.ttf &gt; </span><span class="ot">%s</span><span class="st">.eot&quot;</span> % (output_path, output_path) 
+    os.system(cmd)                           <span class="co"># 利用ttf2eot程序將ttf格式轉為eot文件</span>
+    font1.generate(output_path + <span class="st">&quot;.woff&quot;</span>)    <span class="co"># 生成woff格式的文件</span></code></pre>
+<p>為了保證同一字體不同子集所生成的文件名不同，文件可用字體名稱加上漢字串的hash值來命名。如</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> mk_font_path(font_name, text):
+    <span class="co">&quot;&quot;&quot;font_name 是字體名稱，text是待提取的漢字串</span>
+<span class="co">    &quot;&quot;&quot;</span>
+    <span class="kw">return</span> font_dir + (font_name + <span class="st">&quot;-&quot;</span> + <span class="dt">str</span>(<span class="dt">hash</span>(text)))</code></pre>
+<p>這就實現了大字庫文件的按需抽取，並置於網頁服務器對外提供服務的目錄中。接下來服務器生成一段CSS代碼，定義字體名稱，並發佈這三個子集字體的資源路徑。</p>
+<h2 id="css代碼">CSS代碼</h2>
+<p>Internet Explorer與其他瀏覽器對CSS網頁字體(@font-face)的定義格式不一致，為兼容所有瀏覽器，此段CSS代碼的寫法是有講究的。網上有許多論述，以下寫法號稱最優，可以適應所有瀏覽器。<sup><a href="#fn5" class="footnoteRef" id="fnref5">5</a></sup></p>
+<pre class="sourceCode css"><code class="sourceCode css"><span class="dv">@font-face</span> <span class="kw">{</span>
+  <span class="kw">font-family:</span> <span class="st">'HanDingYanTi'</span><span class="kw">;</span>
+  <span class="kw">src:</span> <span class="dt">url(.</span>/subfonts/HanDingYanTi--4714295958101654617<span class="dt">.</span>eot<span class="dt">)</span><span class="kw">;</span>
+  <span class="kw">src:</span> <span class="dt">local(</span><span class="st">'☺'</span><span class="dt">)</span>, <span class="dt">url(</span><span class="st">'./subfonts/HanDingYanTi--4714295958101654617.eot?'</span><span class="dt">)</span> <span class="dt">format(</span><span class="st">'eot'</span><span class="dt">)</span>, <span class="dt">url(</span><span class="st">'./subfonts/HanDingYanTi--4714295958101654617.woff'</span><span class="dt">)</span> <span class="dt">format(</span><span class="st">'woff'</span><span class="dt">)</span>, <span class="dt">url(</span><span class="st">'./subfonts/HanDingYanTi--4714295958101654617.ttf'</span><span class="dt">)</span> <span class="dt">format(</span><span class="st">'truetype'</span><span class="dt">)</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre>
+<p>相應的Python代碼如下</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> mk_css_resp(font_name, font_path):
+    <span class="kw">return</span> <span class="st">&quot;&quot;&quot;@font-face {</span>
+<span class="st">  font-family: '</span><span class="ot">%s</span><span class="st">';</span>
+<span class="st">  src: url(</span><span class="ot">%s</span><span class="st">.eot);</span>
+<span class="st">  src: local('☺'), url('</span><span class="ot">%s</span><span class="st">.eot?') format('eot'), url('</span><span class="ot">%s</span><span class="st">.woff') format('woff'), url('</span><span class="ot">%s</span><span class="st">.ttf') format('truetype');</span>
+<span class="st">}&quot;&quot;&quot;</span> % (font_name, font_path, font_path, font_path, font_path)</code></pre>
+<h1 id="示範服務器">示範服務器</h1>
+<p>昨日搭了一個示範服務器，提供顏體<sup><a href="#fn6" class="footnoteRef" id="fnref6">6</a></sup>字體，用法詳見“<a href="#字體服務的使用">字體服務的使用</a>”一節，其代碼中的IP地址即是示範服務器的地址。可以直接使用，代碼中需要更改的只有text參數。</p>
+<h1 id="後續問題">後續問題</h1>
+<p>整套方案目前還有幾個問題需要解決。</p>
+<p>最迫切就是瀏覽器的兼容性問題。經初步測試目前這個方案在Internet Explorer 6、7、8、9等版本，Google Chrome, Safari上能有預期效果。但是在Firefox、Opera上完全得不到預期效果。理論上這個方案是能兼容所有瀏覽器的所有版本。</p>
+<p>其次需深究Fontforge，解決字體的編碼以及縮進問題，或許深究後還會發現新的問題。這裡目的在於利用現有的各種自由字體。</p>
+<p>第三是研究如何將位圖(bitmap)轉換為字體字形，Fontforge有這種工具。這個問題如果解決，則可將歷代書法作品製成字體，做成不完全字庫。</p>
+<p>第四則可研究漢字缺字問題。可將罕見漢字字形做成小型的罕見字庫。甚至可將自造字，如古琴譜，首先映射到Unicode的預留區，然後製作成字庫，隨網頁一併發佈。這種自造字雖然沒有國際統一規定，但可以在網頁上首先呈現出來。此可為漢字的自由創造開闢一扇門。</p>
+<p>此外字體服務器方面也有些問題，比如字體文件的緩存還有待實現(這個可在瀏覽器端或者反向代理處實現)。此外或許可將漢字按使用頻率的明顯差異將其分割為幾個足夠小的部份，每部份分別製成字體文件，如此則用戶不必每次請求時都附加漢字串參數，可直接請求某頻率區域的字體。</p>
+<h1 id="結語">結語</h1>
+<p>沒想到漢字網頁字體實現起來這麼容易，期待一個甲骨文、金文、篆書、隸書、行楷草書熠熠生輝的萬維網!</p>
+<div class="footnotes">
+<hr></hr>
+<ol>
+<li id="fn1"><p><a href="http://webfonts.info/wiki/index.php?title=@font-face_browser_support">瀏覽器字體兼容性請參考此頁面</a><a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>所有代碼已放在<a href="https://github.com/hwa/lioksu">github</a>上<a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p><a href="http://fontforge.sourceforge.net/python.html">Fontforge的python接口文檔</a><a href="#fnref3">↩</a></p></li>
+<li id="fn4"><p><a href="http://snook.ca/archives/html_and_css/screencast-converting-ttf2eot">此君</a>述其經驗稱，僅以ttf2eot作簡單轉換也有問題，還需作其他高級信息更改，看來此問題有待深入研究<a href="#fnref4">↩</a></p></li>
+<li id="fn5"><p><a href="http://paulirish.com/2009/bulletproof-font-face-implementation-syntax/">此頁面詳細比較了各種寫法</a><a href="#fnref5">↩</a></p></li>
+<li id="fn6"><p>此顏體是<a href="http://www.wazu.jp/gallery/Fonts_ChineseTraditional.html">王漢宗顏體</a>，網上還有其他可重發佈的自由字體，鏈接請參考<a href="http://tech.azuremedia.net/2008/01/20/1258/">Jan’s Tech Blog</a>，<a href="http://www.clearchinese.com/resources/fonts.htm">漢鼎字體</a><a href="#fnref6">↩</a></p></li>
+</ol>
+</div>
+
+
+  <div class="article-footer">
+    <p>by <em>cch</em> on <strong>March 29, 2012</strong> <br />
+    Tagged as: <a href="../../tags/hack.html">hack</a>, <a href="../../tags/六書.html">六書</a>.</p>
+  </div>
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'tsanhwa'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+  <footer>
+
+  </footer>
+
+
+</body>
+</html>
