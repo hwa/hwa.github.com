@@ -109,15 +109,17 @@ font_files = {<span class="st">&quot;HanDingYanTi&quot;</span> : HanDingYanTi_fo
 <span class="st">  src: url(</span><span class="ot">%s</span><span class="st">.eot);</span>
 <span class="st">  src: local('☺'), url('</span><span class="ot">%s</span><span class="st">.eot?') format('eot'), url('</span><span class="ot">%s</span><span class="st">.woff') format('woff'), url('</span><span class="ot">%s</span><span class="st">.ttf') format('truetype');</span>
 <span class="st">}&quot;&quot;&quot;</span> % (font_name, font_path, font_path, font_path, font_path)</code></pre>
+<h2 id="字體文件">字體文件</h2>
+<p>服務器在返回字體文件時需要注意設置幾個重要的首信息(HTTP HEADER)。其一是“Expires”，可設成盡量遠，如一年之後，Expires只接受嚴格的英文日期格式: “Sat, 28 Apr 2012 13:41:04 GMT”。其二是“Cache-Control”，如“public, max-age=2544316”，這是緩存一個月時間。其三是“Access-Control-Allow-Origin”, 需設為“*”，這是允許跨域使用字體，此首信息不設置，Firefox將不會禁用此字體文件。<sup><a href="#fn6" class="footnoteRef" id="fnref6">6</a></sup></p>
 <h1 id="示範服務器">示範服務器</h1>
-<p>昨日搭了一個示範服務器，提供顏體<sup><a href="#fn6" class="footnoteRef" id="fnref6">6</a></sup>字體，用法詳見“<a href="#字體服務的使用">字體服務的使用</a>”一節，其代碼中的IP地址即是示範服務器的地址。可以直接使用，代碼中需要更改的只有text參數。</p>
+<p>昨日搭了一個示範服務器，提供顏體<sup><a href="#fn7" class="footnoteRef" id="fnref7">7</a></sup>字體，用法詳見“<a href="#字體服務的使用">字體服務的使用</a>”一節，其代碼中的IP地址即是示範服務器的地址。可以直接使用，代碼中需要更改的只有text參數。</p>
 <h1 id="後續問題">後續問題</h1>
 <p>整套方案目前還有幾個問題需要解決。</p>
-<p>最迫切就是瀏覽器的兼容性問題。經初步測試目前這個方案在Internet Explorer 6、7、8、9等版本，Google Chrome, Safari上能有預期效果。但是在Firefox、Opera上完全得不到預期效果。理論上這個方案是能兼容所有瀏覽器的所有版本。</p>
+<p>最迫切就是瀏覽器的兼容性問題。經初步測試目前這個方案在Internet Explorer 6、7、8、9等版本，Google Chrome， Safari，Firefox，Windows上的Opera上能有預期效果。但是在Mac OS X上的Opera 11上完全得不到預期效果。理論上這個方案是能兼容所有瀏覽器的所有版本。</p>
 <p>其次需深究Fontforge，解決字體的編碼以及縮進問題，或許深究後還會發現新的問題。這裡目的在於利用現有的各種自由字體。</p>
 <p>第三是研究如何將位圖(bitmap)轉換為字體字形，Fontforge有這種工具。這個問題如果解決，則可將歷代書法作品製成字體，做成不完全字庫。</p>
 <p>第四則可研究漢字缺字問題。可將罕見漢字字形做成小型的罕見字庫。甚至可將自造字，如古琴譜，首先映射到Unicode的預留區，然後製作成字庫，隨網頁一併發佈。這種自造字雖然沒有國際統一規定，但可以在網頁上首先呈現出來。此可為漢字的自由創造開闢一扇門。</p>
-<p>此外字體服務器方面也有些問題，比如字體文件的緩存還有待實現(這個可在瀏覽器端或者反向代理處實現)。此外或許可將漢字按使用頻率的明顯差異將其分割為幾個足夠小的部份，每部份分別製成字體文件，如此則用戶不必每次請求時都附加漢字串參數，可直接請求某頻率區域的字體。</p>
+<p>此外字體服務器性能方面或許可做一些改善，如可將漢字按使用頻率的明顯差異將其分割為幾個足夠小的部份，每部份分別製成字體文件，如此則用戶不必每次請求時都附加漢字串參數，可直接請求某頻率區域的字體。</p>
 <h1 id="結語">結語</h1>
 <p>沒想到漢字網頁字體實現起來這麼容易，期待一個甲骨文、金文、篆書、隸書、行楷草書熠熠生輝的萬維網!</p>
 <div class="footnotes">
@@ -128,7 +130,8 @@ font_files = {<span class="st">&quot;HanDingYanTi&quot;</span> : HanDingYanTi_fo
 <li id="fn3"><p><a href="http://fontforge.sourceforge.net/python.html">Fontforge的python接口文檔</a><a href="#fnref3">↩</a></p></li>
 <li id="fn4"><p><a href="http://snook.ca/archives/html_and_css/screencast-converting-ttf2eot">此君</a>述其經驗稱，僅以ttf2eot作簡單轉換也有問題，還需作其他高級信息更改，看來此問題有待深入研究<a href="#fnref4">↩</a></p></li>
 <li id="fn5"><p><a href="http://paulirish.com/2009/bulletproof-font-face-implementation-syntax/">此頁面詳細比較了各種寫法</a><a href="#fnref5">↩</a></p></li>
-<li id="fn6"><p>此顏體是<a href="http://www.wazu.jp/gallery/Fonts_ChineseTraditional.html">王漢宗顏體</a>，網上還有其他可重發佈的自由字體，鏈接請參考<a href="http://tech.azuremedia.net/2008/01/20/1258/">Jan’s Tech Blog</a>，<a href="http://www.clearchinese.com/resources/fonts.htm">漢鼎字體</a><a href="#fnref6">↩</a></p></li>
+<li id="fn6"><p>關於緩存可參考此<a href="http://www.mnot.net/cache_docs/">頁面</a><a href="#fnref6">↩</a></p></li>
+<li id="fn7"><p>此顏體是<a href="http://www.wazu.jp/gallery/Fonts_ChineseTraditional.html">王漢宗顏體</a>，網上還有其他可重發佈的自由字體，鏈接請參考<a href="http://tech.azuremedia.net/2008/01/20/1258/">Jan’s Tech Blog</a>，<a href="http://www.clearchinese.com/resources/fonts.htm">漢鼎字體</a><a href="#fnref7">↩</a></p></li>
 </ol>
 </div>
 
