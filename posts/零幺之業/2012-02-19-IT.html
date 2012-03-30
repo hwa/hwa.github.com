@@ -34,15 +34,13 @@
   </header>
   <div role="main">
   <div class="article">
-	<div class="alert">注意：此文尚未發佈</div>
-  <h1 class="page-header title"><a href>Debian 系統新手素要</a></h1>
-    <h2 id="系统配置">系统配置</h2>
-<h3 id="网络配置">网络配置</h3>
+  <h1 class="page-header title"><a href>Debian 系統新手速要</a></h1>
+    <h1 id="网络配置">网络配置</h1>
 <p>可用shell命令配置，如下</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">su</span>               <span class="co"># root登錄</span>
 ifconfig eth0 10.0.0.3 netmask 255.255.255.0
 route add default gw 10.0.0.1</code></pre>
-<h2 id="软件安装">软件安装</h2>
+<h1 id="软件安装">软件安装</h1>
 <h3 id="修改-apt-之源">修改 apt 之源</h3>
 <p>shell命令如下:</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">su</span>			<span class="co"># root 登录</span>
@@ -58,6 +56,19 @@ aptitude <span class="kw">install</span> {软件名称}</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash">aptitude upgrade		<span class="co"># 升级整个系统</span></code></pre>
 <p>或者</p>
 <pre class="sourceCode bash"><code class="sourceCode bash">aptitude dist-upgrade    <span class="co"># 版本大升级，最彻底的升级</span></code></pre>
+<h1 id="iscsi使用">iSCSI使用</h1>
+<p>首先取得存儲iqn號，如</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">iscsiadm  -m discovery -t st -p 192.168.0.20</code></pre>
+<p>-p 後接存儲ip地址，此命令當得到存儲的iqn號，形如“iqn.2007-01.org.debian.foobar:CDs”。然後登錄:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">iscsiadm  -m node  --targetname <span class="st">&quot;iqn.2007-01.org.debian.foobar:CDs&quot;</span> --portal <span class="st">&quot;192.168.0.1:3260&quot;</span> --login</code></pre>
+<p>如果順利，系統會提示“login successful”。在dmesg中會看到發現新硬盤，並為之分配盤號，如sdb。如果dmesg顯示找到新硬盤，但是未分配盤號，則很可能是存儲管理員未允許此主機使用該存儲。聯繫管理員，告之本主機的iqn，請其賦予使用權。本主機iqn號見文件 /etc/iscsi/initiatorname.iscsi。</p>
+<p>至此，iSCSI存儲使用則如同本地硬盤，可以fdisk分區，然後mount。若欲開機自動登錄存儲，可更改此存儲的配置，或者更改iSCSId的默認設置。某存儲配置文件在/etc/iscsi下，如</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">head</span> -3 <span class="st">&quot;/etc/iscsi/nodes/iqn.2007-01.org.debian.foobar:CDs:notconfig:192.168.0.20/192.168.0.20,3260,1/default&quot;</span>
+
+node.name = iqn.2007-01.org.debian.foobar:CDs:notconfig:192.168.0.20
+node.tpgt = 1
+node.startup = manual <span class="co">#改為automatic</span></code></pre>
+<p>將node.startup之值由manual改為automatic。全局默認配置文件是/etc/iscsi/iscsid.conf，也是更改node.startup之值。</p>
 
 
   <div class="article-footer">
