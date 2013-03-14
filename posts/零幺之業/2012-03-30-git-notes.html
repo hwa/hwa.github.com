@@ -69,7 +69,10 @@ git branch -d new-branch  <span class="co">#delete new branch</span>
 git checkout ac9f9a <span class="co"># jump to a historical commit</span>
 git checkout master <span class="co"># go back to master HEAD, newest commit</span>
 
-git revert ac9f9a   <span class="co"># make a new commit that is identical to this historical commit </span></code></pre>
+git revert ac9f9a   <span class="co"># make a new commit that is identical to this historical commit </span>
+
+git reset --soft HEAD^ <span class="kw">clear</span> git <span class="kw">history</span> one commit back
+git reset --soft HEAD@<span class="dt">{3}</span> <span class="kw">clear</span> git <span class="kw">history</span> 3 commit back</code></pre>
 
 
   <div class="article-footer">
